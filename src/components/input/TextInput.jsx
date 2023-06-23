@@ -2,16 +2,19 @@
 import "./style/text-input.css";
 
 // icon
-// import { info } from "../../assets/icons/info.svg";
+import info from "../../assets/icons/info.svg";
 
 const TextInput = () => {
   return (
     <div className="text-input-container">
-      <div>
+      <div className="text-input-container__label-container">
         <p>Amount</p>
-        {/* <img src={info} alt="info" /> */}
+        <img src={info} alt="info" />
       </div>
-      <div></div>
+      <div className="text-input-container__input-container">
+        <input />
+        <p>USD</p>
+      </div>
     </div>
   );
 };

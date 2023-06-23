@@ -5,7 +5,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
-/* .text-input-container > div {
-} */
+.text-input-container p {
+  color: var(--secondary-black-tint-3);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.text-input-container img {
+  margin-left: 5px;
+}
+
+.text-input-container > div {
+  display: flex;
+  align-items: center;
+}
+
+.text-input-container__label-container {
+  justify-content: flex-start;
+}
+
+.text-input-container__input-container {
+  justify-content: flex-end;
+}
+
+.text-input-container__input-container input{
+    width: 100%;
+    border: 1px solid red;
+}
