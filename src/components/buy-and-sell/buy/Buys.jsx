@@ -5,7 +5,7 @@ import TextInput from "../../input/TextInput";
 // style
 import "./style/buy.css";
 
-const Buy = () => {
+const Buys = () => {
   const sections = ["Limit", "Market", "Stop-Limit"];
   const [activeSection, setActiveSection] = useState(0);
 
@@ -43,4 +43,4 @@ const Buy = () => {
   );
 };
 
-export default Buy;
+export default Buys;

@@ -1,7 +1,7 @@
 import { Tabs } from "antd";
 
 import SingleHistory from "../history/single-history/SingleHistory";
-import Buy from "./buy/buy";
+import Buys from "./buy/Buys";
 
 //style
 import "./style/buy-and-sell.css";
@@ -10,7 +10,7 @@ const items = [
     {
       key: "1",
       label: <div>Buy</div>,
-      children: <Buy />,
+      children: <Buys />,
     },
     {
       key: "2",
