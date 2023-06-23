@@ -1,0 +1,11 @@
+.text-input-container {
+  border: 1px solid var(--dark-mode-input-stroke);
+  border-radius: 8px;
+  padding: 13px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .text-input-container > div {
+} */

@@ -1,0 +1,146 @@
+:root {
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%; */
+  --primary-color: #1c2127;
+  --dark-mode-card-bg: #20252b;
+  --dark-mode-card-stroke: #262932;
+  --secondary-black-tint-3: #a7b1bc;
+  --support-success: #25C26E;
+  --dark-mode-input-stroke : #373B3F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all ease-in-out 250ms;
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+
+/* a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+} */
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background: var(--primary-color);
+}
+
+.ant-tabs-top > .ant-tabs-nav::before {
+  border-bottom: 1px solid var(--dark-mode-card-bg) !important;
+}
+
+.ant-tabs > .ant-tabs-nav {
+  background-color: #1b1f24;
+  height: 41px;
+  padding: 2px;
+  border-radius: 10px;
+}
+
+.ant-tabs .ant-tabs-tab {
+  border-right: 2px solid rgba(60, 60, 67, 0.36);
+  display: flex;
+  padding: 10px 8px;
+  width: 159px;
+  height: 20.57px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-tabs-nav-list{
+  justify-content: flex-start;
+  align-items: center;
+}
+
+div.ant-tabs-nav-list > div:nth-last-child(2) {
+  border-right: none !important;
+}
+
+.ant-tabs .ant-tabs-tab:hover {
+  color: var(--secondary-black-tint-3) !important;
+}
+
+.ant-tabs .ant-tabs-tab {
+  color: var(--secondary-black-tint-3);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.ant-tabs-tab-active {
+  border-radius: 8px;
+  background: var(--dark-mode-card-bg) !important;
+  box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.04),
+    0px 3px 8px 0px rgba(0, 0, 0, 0.12);
+  border-right: none !important;
+  height: 36px !important;
+}
+
+.ant-tabs .ant-tabs-tab + .ant-tabs-tab {
+  margin: 0;
+}
+
+.ant-tabs .ant-tabs-ink-bar {
+  background-color: transparent;
+}
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff;
+  text-shadow: none;
+}
+
+/* h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */

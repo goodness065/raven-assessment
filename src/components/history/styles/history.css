@@ -1,0 +1,15 @@
+.history-card {
+  background-color: var(--dark-mode-card-bg);
+  border: 1px solid var(--dark-mode-card-stroke);
+  padding: 16px;
+}
+
+.history-card .ant-tabs > .ant-tabs-nav {
+  width: 640px;
+}
+
+@media (min-width: 0) and (max-width: 768px) {
+  .history-card .ant-tabs > .ant-tabs-nav {
+    width: 100%;
+  }
+}

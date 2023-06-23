@@ -1,0 +1,28 @@
+.buy-card__nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.buy-card__nav__item {
+  cursor: pointer;
+}
+
+.buy-card__nav__item > p {
+    color: var(--secondary-black-tint-3);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.buy-card__nav__item--active {
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: #353945;
+}
+
+.buy-card__nav__item--active > p {
+  color: #fff !important;
+}
