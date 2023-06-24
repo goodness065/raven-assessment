@@ -11,16 +11,17 @@
 }
 
 .buy-card__nav__item > p {
-    color: var(--secondary-black-tint-3);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 16px;
+  color: var(--secondary-black-tint-3);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
 }
 
 .buy-card__nav__item--active {
   padding: 6px 12px;
   border-radius: 100px;
   background: #353945;
+  font-weight: 700 !important;
 }
 
 .buy-card__nav__item--active > p {

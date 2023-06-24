@@ -15,7 +15,7 @@ const items = [
     {
       key: "2",
       label: <div>Sell</div>,
-      children: <SingleHistory title="Position" />,
+      children: <SingleHistory title="Sales Available" />,
     },
   ];
 

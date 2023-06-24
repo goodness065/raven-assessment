@@ -1,30 +1,21 @@
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%; */
   --primary-color: #1c2127;
   --dark-mode-card-bg: #20252b;
   --dark-mode-card-stroke: #262932;
   --secondary-black-tint-3: #a7b1bc;
-  --support-success: #25C26E;
-  --dark-mode-input-stroke : #373B3F;
+  --support-success: #25c26e;
+  --dark-mode-input-stroke: #373b3f;
+  --primary-blue-fountain: #2764FF;
+  --chart-green: #00C076;
+  --dark-mode-app-bg : #1C2127;
+  --gradient-g-1: linear-gradient(90deg, #483BEB 0%, #7847E1 47.92%, #DD568D 96.35%);
+
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all ease-in-out 250ms;
   font-family: "Source Sans Pro", sans-serif !important;
 }
 
@@ -38,9 +29,7 @@ a:hover {
 } */
 
 body {
-  margin: 0;
   width: 100%;
-  height: 100vh;
   font-family: "Open Sans", sans-serif;
   background: var(--primary-color);
 }
@@ -66,7 +55,7 @@ body {
   align-items: center;
 }
 
-.ant-tabs-nav-list{
+.ant-tabs-nav-list {
   justify-content: flex-start;
   align-items: center;
 }
@@ -106,6 +95,45 @@ div.ant-tabs-nav-list > div:nth-last-child(2) {
 .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #fff;
   text-shadow: none;
+}
+
+.ant-select-selector {
+  border: none !important;
+  background-color: var(--dark-mode-card-bg) !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  color: var(--secondary-black-tint-3) !important ;
+}
+
+.ant-select .ant-select-arrow {
+  inset-inline-end: 0px !important;
+  color: var(--secondary-black-tint-3) !important ;
+}
+
+.ant-select-selection-item {
+  color: var(--secondary-black-tint-3);
+  font-size: 12px;
+  font-weight: 500 !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  var(--dark-mode-card-bg);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  var(--dark-mode-card-bg);
 }
 
 /* h1 {

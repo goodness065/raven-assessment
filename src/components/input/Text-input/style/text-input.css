@@ -1,11 +1,13 @@
 .text-input-container {
   border: 1px solid var(--dark-mode-input-stroke);
   border-radius: 8px;
-  padding: 13px 16px;
+  padding: 0 16px;
+  height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-bottom: 16px;
 }
 
 .text-input-container p {
@@ -16,7 +18,7 @@
 }
 
 .text-input-container img {
-  margin-left: 5px;
+  margin: 0 5px;
 }
 
 .text-input-container > div {
@@ -33,6 +35,25 @@
 }
 
 .text-input-container__input-container input{
-    width: 100%;
-    border: 1px solid red;
+  height: 38px;
+  background-color: var(--dark-mode-card-bg);
+  border: none;
+  width: 80px;
+  outline: none;
+}
+
+input , input::placeholder {
+  color: var(--secondary-black-tint-3);
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
 }

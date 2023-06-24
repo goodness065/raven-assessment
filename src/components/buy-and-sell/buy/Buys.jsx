@@ -1,9 +1,11 @@
 import { useState } from "react";
 
-import TextInput from "../../input/TextInput";
+import Limit from "./limit/Limit";
+import Market from "./market/Market";
 
 // style
 import "./style/buy.css";
+import StopLimit from "./stop-limit/StopLimit";
 
 const Buys = () => {
   const sections = ["Limit", "Market", "Stop-Limit"];
@@ -28,16 +30,14 @@ const Buys = () => {
           </div>
         ))}
       </div>
-      <div className="profile-info-con">
+      <div>
         {activeSection === 0 ? (
-          <div>
-            <TextInput />
-          </div>
+          <Limit />
         ) : activeSection === 1 ? (
-          <div></div>
+          <Market />
         ) : (
-          <div></div>
-        )}{" "}
+          <StopLimit />
+        )}
       </div>
     </section>
   );

@@ -1,0 +1,24 @@
+.button {
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  border: none;
+  outline: none;
+  padding: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  margin-bottom: 16px;
+}
+
+.button--blue{
+    background: var(--primary-blue-fountain);
+}
+
+.button--gradient{
+    background: var(--gradient-g-1);
+    width: 100%;
+
+}
