@@ -9,10 +9,19 @@ export const useGetBinanceTradingPairs = () => {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const result = await axios.get(
+      const result1 = await axios.get(
         "https://api.binance.com/api/v3/exchangeInfo"
       );
-      setData(result.data.symbols);
+      const result2 = await axios.get(
+        `https://api.binance.com/api/v3/ticker/price`
+      );
+      const combinedTradingPairWithPrice = result1?.data?.symbols?.map((dataObj) => {
+        const matchArray = result2?.data?.find(
+          (tickerPriceDataObj) => tickerPriceDataObj.symbol === dataObj.symbol
+        );
+        return { ...dataObj, ...matchArray };
+      })
+      setData(combinedTradingPairWithPrice);
     } catch (err) {
       setError(err);
     }
