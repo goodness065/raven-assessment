@@ -30,7 +30,7 @@ const TradingHeader = () => {
   const [openSelectMarketDropdown, setOpenSelectMarketDropdown] =
     useState(false);
 
-  const [{ data }] = useGetBinanceTradingPairs();
+  const [{ data, loading }] = useGetBinanceTradingPairs();
   const [{ data: tickerData }] = useGetTicker24HrsData(tradingSymbol);
   const [{ data: tickerPriceData }] = useGetAllTickerPrice();
   const [{ data: individualTickerPriceData }] =
@@ -156,57 +156,68 @@ const TradingHeader = () => {
         </div>
       </div>
       {openSelectMarketDropdown && (
-        <div className="trading-header-container__search-main-container">
-          <h2>Select Market</h2>
-          <div className="trading-header-container__search-main-container__input-container">
-            <img src={search} alt="" />
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={handleSearch}
-              placeholder="Search"
-            />
-          </div>
-          <div className="trading-header-container__search-main-container__nav">
-            <div className="buy-card__nav">
-              {sections.map((section, index) => (
-                <div
-                  key={index}
-                  onClick={() => changeActiveSection(index)}
-                  className={`buy-card__nav__item ${
-                    activeSection === index ? "buy-card__nav__item--active" : ""
-                  }`}
-                >
-                  <p>{section}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          {filteredPairs?.length === 0 ? (
-            <div className="trading-header-container__search-main-container__no-data">
-              <p>No data</p>
-            </div>
+        <div>
+          {loading ? (
+            <h1>loading</h1>
           ) : (
-            <ul>
-              {filteredPairs?.map((pair) => (
-                <li key={pair.symbol} onClick={() => handleSelectPair(pair)}>
-                  <p>
-                    {pair.baseAsset} - {pair.quoteAsset}
-                  </p>
-                  <p>
-                    $
-                    <NumericFormat
-                      value={parseFloat(pair.price).toFixed(4)}
-                      displayType="text"
-                      thousandSeparator=","
-                    />
-                  </p>
-                  <p className="trading-header-container__search-main-container__percentage">
-                    +{pair.filters[5].avgPriceMins}%
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <div className="trading-header-container__search-main-container">
+              <h2>Select Market</h2>
+              <div className="trading-header-container__search-main-container__input-container">
+                <img src={search} alt="" />
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  placeholder="Search"
+                />
+              </div>
+              <div className="trading-header-container__search-main-container__nav">
+                <div className="buy-card__nav">
+                  {sections.map((section, index) => (
+                    <div
+                      key={index}
+                      onClick={() => changeActiveSection(index)}
+                      className={`buy-card__nav__item ${
+                        activeSection === index
+                          ? "buy-card__nav__item--active"
+                          : ""
+                      }`}
+                    >
+                      <p>{section}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {filteredPairs?.length === 0 ? (
+                <div className="trading-header-container__search-main-container__no-data">
+                  <p>No data</p>
+                </div>
+              ) : (
+                <ul>
+                  {filteredPairs?.map((pair) => (
+                    <li
+                      key={pair.symbol}
+                      onClick={() => handleSelectPair(pair)}
+                    >
+                      <p>
+                        {pair.baseAsset} - {pair.quoteAsset}
+                      </p>
+                      <p>
+                        $
+                        <NumericFormat
+                          value={parseFloat(pair.price).toFixed(4)}
+                          displayType="text"
+                          thousandSeparator=","
+                        />
+                      </p>
+                      <p className="trading-header-container__search-main-container__percentage">
+                        +{pair.filters[5].avgPriceMins}%
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           )}
         </div>
       )}
