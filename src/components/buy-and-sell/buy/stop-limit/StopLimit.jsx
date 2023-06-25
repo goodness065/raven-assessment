@@ -72,7 +72,7 @@ const StopLimit = () => {
         <p>Total account value</p>
         <Select
           defaultValue="NGN"
-          popupClassName="dropdown-input-container__select-dropdown"
+          popupClassName="dropdown-input-container__select-dropdown dropdown-input-container__select-dropdown--width2"
           options={currency}
         />
       </div>

@@ -12,8 +12,6 @@ const BuyAndSellBottom = () => {
     setOpen(false);
   };
 
-  console.log(defaultValue)
-
   return (
     <div className="buy-and-sell-bottom-container">
       <Drawer

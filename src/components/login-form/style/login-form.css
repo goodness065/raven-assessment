@@ -1,0 +1,35 @@
+.login-form-container {
+  height: 87vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-container form {
+  width: 400px;
+}
+
+.login-form-container button {
+  height: 50px;
+  font-size: 16px !important;
+}
+
+.login-form-container input {
+  border: none;
+  width: 100%;
+  outline: none;
+  border-radius: 8px;
+  height: 50px;
+  margin-bottom: 20px;
+  font-size: 16px !important;
+}
+
+.login-form-container input::placeholder {
+  font-size: 16px !important;
+}
+
+@media (min-width: 0) and (max-width: 500px) {
+  .login-form-container form {
+    width: 100%;
+  }
+}

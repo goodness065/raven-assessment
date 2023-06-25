@@ -16,8 +16,6 @@ import { useTradingPairProviderContext } from "../../providers/trading-pair-prov
 const CandleStick = () => {
   const { tradingSymbol } = useTradingPairProviderContext();
 
-  console.log("symbol", tradingSymbol);
-
   const sections = ["1h", "2h", "4h", "1w", "1m"];
 
   const [activeSection, setActiveSection] = useState(0);

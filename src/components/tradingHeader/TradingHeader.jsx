@@ -82,8 +82,6 @@ const TradingHeader = () => {
     setActiveSection(index);
   };
 
-  console.log("open", openSelectMarketDropdown);
-
   return (
     <section className="trading-header-container">
       <div className="trading-header-container__main">

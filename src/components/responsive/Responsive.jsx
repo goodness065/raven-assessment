@@ -1,7 +1,9 @@
 import { Tabs } from "antd";
+
 import CandleStick from "../candle-stick/CandleStick";
 import SingleHistory from "../history/single-history/SingleHistory";
 import OrderBook from "../order-book-and-recent-trade/order-book/OrderBook";
+
 import "./style/responsive.css";
 
 const items = [

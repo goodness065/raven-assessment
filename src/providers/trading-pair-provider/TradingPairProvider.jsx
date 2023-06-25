@@ -1,22 +1,9 @@
 import { useState, createContext, useMemo, useContext } from "react";
 import PropTypes from "prop-types";
 
-// export interface InvestmentProviderProps {
-//   children: React.ReactNode | React.ReactNode | React.ReactNode[];
-// }
-
-// export type InvestmentProviderValues = {
-//   setInvestmentAmount(data: number): void;
-//   setMinimumInvestmentAmount(data: number): void;
-//   investmentAmount: number;
-//   minimuminvestmentAmount: number;
-// };
-
 export const TradingPairProviderContext = createContext({
   setTradingSymbol() {},
-  //   setMinimumInvestmentAmount() {},
   tradingSymbol: "BTCUSDT",
-  //   minimuminvestmentAmount: 0,
 });
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -31,7 +18,6 @@ export const useTradingPairProviderContext = () => {
 
 export const TradingPairProvider = ({ children }) => {
   const [tradingSymbol, setTradingSymbol] = useState("BTCUSDT");
-  //   const [minimuminvestmentAmount, setMinimumInvestmentAmount] = useState(0);
 
   const value = useMemo(
     () => ({

@@ -6,13 +6,16 @@
   width: 23%;
 }
 
+.buy-and-sell-card .single-history-card p{
+  width: 100% !important;
+}
+
 .buy-and-sell-card .ant-tabs-tab-active {
   border: 1px solid var(--support-success) !important;
 }
 
 .buy-and-sell-card .ant-tabs > .ant-tabs-nav {
   width: 100%;
-  /* width: 326px; */
 }
 
 @media (min-width: 0) and (max-width: 400px) {
@@ -23,7 +26,7 @@
 
 @media (min-width: 0) and (max-width: 1100px) {
   .buy-and-sell-card {
-    padding: 36px;
+    padding: 16px;
   }
 
   .buy-and-sell-card{
