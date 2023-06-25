@@ -1,9 +1,15 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import { NumericFormat } from "react-number-format";
 
 import { useGetBinanceTradingPairs } from "../../hooks/useGetBinanceTradingPairs";
+import { getPercentage } from "../../helpers/getPercentage";
+import { useGetAllTickerPrice } from "../../hooks/useGetAllTickerPrice";
+import { useGetTicker24HrsData } from "../../hooks/useGetTicker24HrsData";
+import { useGetIndividualTickerPrice } from "../../hooks/useGetIndividualTickerPrice";
+import { useTradingPairProviderContext } from "../../providers/trading-pair-provider/TradingPairProvider";
+
 //icons
 import info from "../../assets/icons/info.svg";
 import chart from "../../assets/icons/chart.svg";
@@ -16,14 +22,19 @@ const TradingHeader = () => {
   const sections = ["All", "USD", "BTC"];
   const [activeSection, setActiveSection] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
+  const { tradingSymbol, setTradingSymbol } = useTradingPairProviderContext();
+
   const [pair1, setPair1] = useState("BTC");
   const [pair2, setPair2] = useState("USDT");
   const [filteredPairs, setFilteredPairs] = useState([]);
-  const [selectedPair, setSelectedPair] = useState(null);
   const [openSelectMarketDropdown, setOpenSelectMarketDropdown] =
     useState(false);
 
   const [{ data }] = useGetBinanceTradingPairs();
+  const [{ data: tickerData }] = useGetTicker24HrsData(tradingSymbol);
+  const [{ data: tickerPriceData }] = useGetAllTickerPrice();
+  const [{ data: individualTickerPriceData }] =
+    useGetIndividualTickerPrice(tradingSymbol);
 
   useEffect(() => {
     if (searchTerm) {
@@ -31,22 +42,29 @@ const TradingHeader = () => {
     }
   }, [searchTerm]);
 
+  const combinedTradingPairWithPrice = data?.map((dataObj) => {
+    const matchArray = tickerPriceData?.find(
+      (tickerPriceDataObj) => tickerPriceDataObj.symbol === dataObj.symbol
+    );
+    return { ...dataObj, ...matchArray };
+  });
+
   useEffect(() => {
     if (activeSection !== 0) {
       const value = sections[activeSection];
       setFilteredPairs(
-        data?.filter((pair) =>
+        combinedTradingPairWithPrice?.filter((pair) =>
           pair.symbol.toLowerCase().includes(value.toLowerCase())
         )
       );
     } else {
       setFilteredPairs(
-        data?.filter((pair) =>
+        combinedTradingPairWithPrice?.filter((pair) =>
           pair.symbol.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, activeSection, data]);
 
   const handleSearch = (event) => {
@@ -54,12 +72,17 @@ const TradingHeader = () => {
   };
 
   const handleSelectPair = (pair) => {
-    setSelectedPair(pair);
+    setPair1(pair.baseAsset);
+    setPair2(pair.quoteAsset);
+    setTradingSymbol(pair.symbol);
+    setOpenSelectMarketDropdown(!openSelectMarketDropdown);
   };
 
   const changeActiveSection = (index) => {
     setActiveSection(index);
   };
+
+  console.log("open", openSelectMarketDropdown);
 
   return (
     <section className="trading-header-container">
@@ -74,14 +97,25 @@ const TradingHeader = () => {
           <MdKeyboardArrowDown className="trading-header-container__arrow-down" />
         </div>
         <div>
-          <h3>$20,645</h3>
+          <h3>
+            $
+            <NumericFormat
+              value={parseFloat(individualTickerPriceData?.price).toFixed(3)}
+              displayType="text"
+              thousandSeparator=","
+            />
+          </h3>
         </div>
         <div className="trading-header-container__24hrs-container">
           <div>
             <img src={info} alt="" />
             <p>24h change</p>
           </div>
-          <h4>$20,645</h4>
+          {Math.sign(tickerData?.priceChangePercent) ? (
+            <h4 style={{ color: "red" }}>{tickerData?.priceChangePercent}%</h4>
+          ) : (
+            <h4>{tickerData?.priceChangePercent}%</h4>
+          )}
         </div>
         <div className="trading-header-container__24hrs-container">
           <div>
@@ -92,7 +126,12 @@ const TradingHeader = () => {
             />
             <p>24h high</p>
           </div>
-          <h2>$20,645</h2>
+          <h2>
+            {parseFloat(
+              getPercentage(tickerData?.openPrice, tickerData?.highPrice)
+            ).toFixed(2)}
+            %
+          </h2>
         </div>
         <div className="trading-header-container__24hrs-container">
           <div>
@@ -101,16 +140,21 @@ const TradingHeader = () => {
                 color: "#A7B1BC",
               }}
             />
-            <p>24h high</p>
+            <p>24h low</p>
           </div>
-          <h2>$20,645</h2>
+          <h2>
+            {parseFloat(
+              getPercentage(tickerData?.openPrice, tickerData?.lowPrice)
+            ).toFixed(2)}
+            %
+          </h2>
         </div>
         <div className="trading-header-container__24hrs-container">
           <div>
             <img src={chart} alt="" />
-            <p>24h high</p>
+            <p>24h volume</p>
           </div>
-          <h2>$20,645</h2>
+          <h2>{parseFloat(tickerData?.volume).toFixed(2)}</h2>
         </div>
       </div>
       {openSelectMarketDropdown && (
@@ -148,24 +192,24 @@ const TradingHeader = () => {
             <ul>
               {filteredPairs?.map((pair) => (
                 <li key={pair.symbol} onClick={() => handleSelectPair(pair)}>
-
                   <p>
                     {pair.baseAsset} - {pair.quoteAsset}
                   </p>
                   <p>
-                    ${parseFloat(pair.filters[0].maxPrice).toFixed(2)}
+                    $
+                    <NumericFormat
+                      value={parseFloat(pair.price).toFixed(4)}
+                      displayType="text"
+                      thousandSeparator=","
+                    />
                   </p>
-                  <p className="trading-header-container__search-main-container__percentage">+{pair.filters[5].avgPriceMins}%</p>
+                  <p className="trading-header-container__search-main-container__percentage">
+                    +{pair.filters[5].avgPriceMins}%
+                  </p>
                 </li>
               ))}
             </ul>
           )}
-        </div>
-      )}
-      {selectedPair && (
-        <div>
-          <h2>{selectedPair.symbol}</h2>
-          {/* Display logo, price, increase rate, and other details */}
         </div>
       )}
     </section>

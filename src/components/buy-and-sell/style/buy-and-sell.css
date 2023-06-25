@@ -2,8 +2,8 @@
   border-radius: 8px;
   border: 1px solid var(--dark-mode-card-stroke);
   background-color: var(--dark-mode-card-bg);
-  margin: 100px 0;
   padding: 8px;
+  width: 23%;
 }
 
 .buy-and-sell-card .ant-tabs-tab-active {
@@ -11,7 +11,8 @@
 }
 
 .buy-and-sell-card .ant-tabs > .ant-tabs-nav {
-  width: 326px;
+  width: 100%;
+  /* width: 326px; */
 }
 
 @media (min-width: 0) and (max-width: 400px) {
@@ -20,8 +21,12 @@
   }
 }
 
-@media (min-width: 0) and (max-width: 992px) {
+@media (min-width: 0) and (max-width: 1100px) {
   .buy-and-sell-card {
     padding: 36px;
+  }
+
+  .buy-and-sell-card{
+    width: 100%;
   }
 }

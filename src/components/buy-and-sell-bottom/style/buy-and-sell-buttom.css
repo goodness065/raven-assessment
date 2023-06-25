@@ -1,0 +1,17 @@
+.buy-and-sell-bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin: 30px 0;
+  border: 1px solid var(--dark-mode-card-stroke);
+  background: var(--dark-mode-change-bg);
+  padding: 16px;
+}
+
+@media (min-width: 0) and (max-width: 500px) {
+  .buy-and-sell-bottom-container {
+    gap: 10px;
+    padding: 16px 8px;
+  }
+}

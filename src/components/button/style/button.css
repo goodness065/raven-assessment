@@ -20,5 +20,14 @@
 .button--gradient{
     background: var(--gradient-g-1);
     width: 100%;
+}
 
+.button--green{
+  background: var(--support-success);
+    width: 100%;
+}
+
+.button--red{
+  background: var(--support-alert);
+    width: 100%;
 }

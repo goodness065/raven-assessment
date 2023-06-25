@@ -1,3 +1,40 @@
-.home{
-    padding: 8px;
+.home {
+  padding: 8px;
+  position: relative;
+}
+
+.home__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.home__flex1 {
+  width: 77%;
+}
+
+.home__flex1 > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.home__res {
+  display: none;
+}
+
+@media (min-width: 0) and (max-width: 1100px) {
+  .home__flex {
+    display: none;
+  }
+
+  .home__res {
+    display: block;
+  }
 }

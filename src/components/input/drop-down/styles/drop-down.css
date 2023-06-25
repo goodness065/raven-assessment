@@ -9,6 +9,10 @@
     width: 183px !important;
 }
 
+.dropdown-input-container__select-dropdown--width2{
+    width: 100px !important;
+}
+
 .dropdown-input-container__select-dropdown div {
   color: #fff !important;
 }

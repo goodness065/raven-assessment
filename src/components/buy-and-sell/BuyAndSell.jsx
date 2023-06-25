@@ -1,4 +1,5 @@
 import { Tabs } from "antd";
+import PropTypes from "prop-types";
 
 import SingleHistory from "../history/single-history/SingleHistory";
 import Buys from "./buy/Buys";
@@ -19,12 +20,16 @@ const items = [
     },
   ];
 
-const BuyAndSell = () => {
+const BuyAndSell = ({defaultActiveKey}) => {
   return (
     <section className="buy-and-sell-card">
-      <Tabs defaultActiveKey="1" items={items} />
+      <Tabs defaultActiveKey={defaultActiveKey} items={items} />
     </section>
   );
 };
+
+BuyAndSell.propTypes = {
+  defaultActiveKey: PropTypes.string,
+ };
 
 export default BuyAndSell;

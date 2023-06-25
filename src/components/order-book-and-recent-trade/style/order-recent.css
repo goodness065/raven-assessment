@@ -2,12 +2,13 @@
   border-radius: 8px;
   border: 1px solid var(--dark-mode-card-stroke);
   background-color: var(--dark-mode-card-bg);
-  margin: 100px 0;
   padding: 8px;
+  width: 27%;
 }
 
 .order-and-recent-card .ant-tabs > .ant-tabs-nav {
-  width: 326px;
+  /* width: 326px; */
+  width: 100%;
 }
 
 @media (min-width: 0) and (max-width: 400px) {
@@ -16,8 +17,14 @@
   }
 }
 
-@media (min-width: 0) and (max-width: 992px) {
+@media (min-width: 600px) and (max-width: 992px) {
   .order-and-recent-card {
     padding: 36px;
+  }
+}
+
+@media (min-width: 0) and (max-width: 600px) {
+  .order-and-recent-card {
+    padding: 8px;
   }
 }

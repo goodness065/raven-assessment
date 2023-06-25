@@ -10,8 +10,6 @@ import "./style/orderBook.css";
 import icon1 from "../../../assets/icons/order1.svg";
 import icon2 from "../../../assets/icons/order2.svg";
 import icon3 from "../../../assets/icons/order3.svg";
-import StopLimit from "../../buy-and-sell/buy/stop-limit/StopLimit";
-import Market from "../../buy-and-sell/buy/market/Market";
 import SingleOrderBook from "./order-book-single/SingleOrderBook";
 
 const OrderBook = () => {
@@ -56,9 +54,9 @@ const OrderBook = () => {
         {activeSection === 0 ? (
           <SingleOrderBook />
         ) : activeSection === 1 ? (
-          <Market />
+          <SingleOrderBook />
         ) : (
-          <StopLimit />
+          <SingleOrderBook />
         )}
       </div>
     </section>

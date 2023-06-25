@@ -1,0 +1,82 @@
+.candle-chart-container {
+  background-color: var(--dark-mode-card-bg);
+  border: 1px solid var(--dark-mode-card-stroke);
+  padding: 16px;
+  border-radius: 8px;
+  width: 75%;
+}
+
+.candle-chart-container__nav p {
+  color: var(--secondary-black-tint-3);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.candle-chart-container__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: scroll;
+}
+
+.candle-chart-container__nav__nav-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.candle-chart-container__nav__nav-list .order-book-main-card__nav__item {
+  margin: 0 10px;
+}
+
+.candle-chart-container__nav__nav-list
+  .order-book-main-card__nav__item--active {
+  border-radius: 100px;
+}
+
+.candle-chart-container__nav__nav-list .order-book-main-card__nav__item p {
+  text-transform: uppercase;
+}
+
+.candle-chart-container__nav__nav-list__arrow {
+  color: var(--secondary-black-tint-3);
+  margin-right: 10px;
+}
+
+.candle-chart-container__nav__nav-list__undo-container {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid rgba(234, 240, 254, 0.10000000149011612);
+  border-right: 1px solid rgba(234, 240, 254, 0.10000000149011612);
+}
+
+.candle-chart-container__nav__nav-list img,
+.candle-chart-container__nav__nav-list__fx-container p {
+  margin: 0 10px;
+}
+
+.candle-chart-container__nav__nav-list__fx-container p {
+  width: 90px;
+}
+
+.candle-chart-container__nav__nav-list__img-container {
+  border-left: 1px solid rgba(234, 240, 254, 0.10000000149011612);
+  border-right: 1px solid rgba(234, 240, 254, 0.10000000149011612);
+}
+
+.candle-chart-container__nav__nav-list__undo {
+  color: rgba(234, 240, 254, 0.10000000149011612);
+  margin: 0 10px;
+}
+
+.candle-chart-container__nav__nav-list__expand {
+  color: var(--secondary-black-tint-3);
+  margin-left: 100px;
+  margin: 0 10px;
+}
+
+@media (min-width: 0) and (max-width: 1100px) {
+  .candle-chart-container {
+    width: 100%;
+  }
+}
