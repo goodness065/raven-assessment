@@ -6,6 +6,10 @@
   width: 27%;
 }
 
+.order-and-recent-card .single-history-card p {
+  width: 100% !important;
+}
+
 .order-and-recent-card .ant-tabs > .ant-tabs-nav {
   /* width: 326px; */
   width: 100%;

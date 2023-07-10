@@ -195,7 +195,7 @@ const TradingHeader = () => {
                   </div>
                 ) : (
                   <ul>
-                    {filteredPairs?.map((pair) => (
+                    {filteredPairs?.slice(0 , 300).map((pair) => (
                       <li
                         key={pair.symbol}
                         onClick={() => handleSelectPair(pair)}
